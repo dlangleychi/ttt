@@ -15,56 +15,54 @@
     {% endfor %}
     <br>
     <div id="board" class="board">
-      <form action="{{ url_for('add_marker', square='1') }}" method="get">
+      <form action="{{ url_for('add_marker', square='1') }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['1'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=2) }}" method="get">
+      <form action="{{ url_for('add_marker', square=2) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['2'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=3) }}" method="get">
+      <form action="{{ url_for('add_marker', square=3) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['3'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=4) }}" method="get">
+      <form action="{{ url_for('add_marker', square=4) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['4'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=5) }}" method="get">
+      <form action="{{ url_for('add_marker', square=5) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['5'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=6) }}" method="get">
+      <form action="{{ url_for('add_marker', square=6) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['6'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=7) }}" method="get">
+      <form action="{{ url_for('add_marker', square=7) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['7'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=8) }}" method="get">
+      <form action="{{ url_for('add_marker', square=8) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['8'] }}</div>
         </button>
       </form>
-      <form action="{{ url_for('add_marker', square=9) }}" method="get">
+      <form action="{{ url_for('add_marker', square=9) }}" method="post">
         <button class="square-btn" type="submit">
           <div class="cell">{{ board['9'] }}</div>
         </button>
       </form>
-
-      
     </div>
     <br>
-    <form action="{{ url_for('index') }}" method="get">
+    <form action="{{ url_for('new_board') }}" method="post">
       <button id="resetButton">Restart Game</button>
     </form>
   </div>
