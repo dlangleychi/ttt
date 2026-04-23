@@ -31,3 +31,8 @@ body {
     height: 100vh;
     flex-direction: column;
 }
+
+.message {
+  padding: 10px;
+  background: #FFFF99;
+}

@@ -1,4 +1,5 @@
 from flask import(
+    flash,
     Flask,
     render_template,
     redirect,
@@ -23,8 +24,11 @@ def get_board():
 
 @app.route('/board/mark/<square>')
 def add_marker(square):
-    session['board'][square] = 'X'
-    session.modified = True
+    if session['board'][square]:
+        flash(f'square {square} is already marked')
+    else:
+        session['board'][square] = 'X'
+        session.modified = True
     return redirect(url_for('get_board'))
 
 if __name__ == '__main__':

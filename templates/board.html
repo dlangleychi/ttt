@@ -10,6 +10,10 @@
   <div>
     <h2>Tic Tac Toe</h2>
     <br>
+    {% for message in get_flashed_messages() %}
+      <p class="message">{{ message }}</p>
+    {% endfor %}
+    <br>
     <div id="board" class="board">
       <form action="{{ url_for('add_marker', square='1') }}" method="get">
         <button class="square-btn" type="submit">
