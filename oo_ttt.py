@@ -298,5 +298,6 @@ class TTTGame:
 
             print('Invalid answer.  Please enter y or n.')
 
-game = TTTGame()
-game.play_match()
+if __name__ == '__main__':
+    game = TTTGame()
+    game.play_match()

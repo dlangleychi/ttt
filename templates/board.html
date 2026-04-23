@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/app.css') }}">
+</head>
+<body>
+  <div>
+    <h2>Tic Tac Toe</h2>
+    <br>
+    <div id="board" class="board">
+      <form action="{{ url_for('add_marker', square='1') }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['1'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=2) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['2'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=3) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['3'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=4) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['4'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=5) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['5'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=6) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['6'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=7) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['7'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=8) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['8'] }}</div>
+        </button>
+      </form>
+      <form action="{{ url_for('add_marker', square=9) }}" method="get">
+        <button class="square-btn" type="submit">
+          <div class="cell">{{ board['9'] }}</div>
+        </button>
+      </form>
+
+      
+    </div>
+    <br>
+    <form action="{{ url_for('index') }}" method="get">
+      <button id="resetButton">Restart Game</button>
+    </form>
+  </div>
+</body>
+</html>
