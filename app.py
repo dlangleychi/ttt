@@ -1,3 +1,5 @@
+# tic tac toe game, app.py
+
 from flask import(
     flash,
     Flask,
@@ -62,7 +64,8 @@ def critical_square(marker, board):
     for row in POSSIBLE_WINNING_ROWS:
         if count_markers_for(marker, row, board) == 2:
             for square in row:
-                if square in unused_squares(board):
+                unused = unused_squares(board)
+                if square in unused:
                     return square
     return None
 
@@ -83,6 +86,15 @@ def computer_move(board):
     if choice is None:
         choice = pick_random_square(board)
     return choice
+
+def handle_end_of_game(board):
+    if someone_won(board):
+        if is_winner(HUMAN_MARKER, board):
+            flash('player won')
+        else:
+            flash('computer won')
+    else:
+        flash('board is full')
 
 @app.route('/')
 def index():
@@ -107,28 +119,12 @@ def add_marker(square):
     else:
         board[square] = HUMAN_MARKER
         if is_game_over(board):
-            if someone_won(board):
-                if is_winner(HUMAN_MARKER, board):
-                    flash('player won')
-                else:
-                    flash('computer won')
-            else:
-                flash('board is full')
-            session.modified = True
-            return redirect(url_for('get_board'))
+            handle_end_of_game(board)
 
         else:
             board[computer_move(board)] = COMPUTER_MARKER            
             if is_game_over(board):
-                if someone_won(board):
-                    if is_winner(HUMAN_MARKER, board):
-                        flash('player won')
-                    else:
-                        flash('computer won')
-                else:
-                    flash('board is full')
-                session.modified = True
-                return redirect(url_for('get_board'))
+                handle_end_of_game(board)
 
         session.modified = True
         
