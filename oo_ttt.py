@@ -27,8 +27,12 @@ class Square:
         return self.marker == Square.INITIAL_MARKER
 
 class Board:
-    def __init__(self):
-        self.squares = {key: Square() for key in range(1, 10)}
+    def __init__(self, squares=None):
+        print(squares)
+        if squares:
+            self.squares = squares
+        else:
+            self.squares = {key: Square() for key in range(1, 10)}
 
     def clear(self):
         for square in self.squares.values():
@@ -126,8 +130,8 @@ class TTTGame:
         return delimiter.join(map(str, ls[:-1])) \
             + f'{delimiter}{before_last} {ls[-1]}'
 
-    def __init__(self):
-        self.board = Board()
+    def __init__(self, squares=None):
+        self.board = Board(squares)
         self.human = Human()
         self.computer = Computer()
 

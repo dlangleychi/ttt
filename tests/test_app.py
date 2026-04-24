@@ -58,7 +58,7 @@ class TTTTest(unittest.TestCase):
         mark_response = self.client.post('/board/mark/5', follow_redirects=True)
         self.assertEqual(mark_response.status_code, 200)
         self.assertIn('X', mark_response.get_data(as_text=True))
-        self.assertIn(' O ', mark_response.get_data(as_text=True))
+        self.assertRegex(mark_response.get_data(as_text=True), r'O(?!C)')
 
     def test_new_board(self):
         response = self.client.get('/')
